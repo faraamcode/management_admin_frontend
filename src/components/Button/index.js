@@ -7,6 +7,9 @@ const ButtonStyle = styled.button`
   padding: 10px 30px;
   border-radius: 6px;
   border: 0;
+  @media screen and (max-width: 650px) {
+    display: none;
+  }
 `
 export const MainButton = ({ title, to }) => {
   return <ButtonStyle>{title}</ButtonStyle>

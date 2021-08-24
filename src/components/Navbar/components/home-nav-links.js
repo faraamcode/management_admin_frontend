@@ -1,20 +1,22 @@
 import React from 'react'
-import styled from 'styled-components'
 import { MainButton } from '../../Button'
+import { LinkItem, LinksList, Links, ToggleIcon } from './home-nav-element'
 
-const LinksList = styled.ul`
-  width: 60%;
-  display: flex;
-  justify-content: space-between;
-`
+// justify-content: space-between;
+
 export default function HomeNavLinks () {
   return (
-    <div>
+    <>
       <LinksList>
-        <li>Student Portal</li>
-        <li>Staff Portal</li>
+        <LinkItem>
+          <Links to='/'>Student Portal</Links>
+        </LinkItem>
+        <LinkItem>
+          <Links to='/'>Staff Portal</Links>
+        </LinkItem>
+        <MainButton title='Register' />
       </LinksList>
-      <MainButton title='Register your child' />
-    </div>
+      <ToggleIcon />
+    </>
   )
 }
