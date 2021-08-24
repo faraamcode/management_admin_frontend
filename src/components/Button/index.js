@@ -11,6 +11,6 @@ const ButtonStyle = styled.button`
     display: none;
   }
 `
-export const MainButton = ({ title, to }) => {
+export const MainButton = ({ title }) => {
   return <ButtonStyle>{title}</ButtonStyle>
 }
