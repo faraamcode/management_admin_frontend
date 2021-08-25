@@ -1,7 +1,10 @@
 import styled from 'styled-components'
+import { Grey, White_2 } from '../utils/color'
+import BackgroundImage from '../assets/images/divider.svg'
 
 export const Wrapper = styled.div`
-  background: ${({ background }) => (background ? background : '#fff')};
+  background: ${({ background }) => (background ? background : Grey)};
+
   width: 100%;
   min-height: 90vh;
   padding: 30px 80px;
@@ -77,6 +80,20 @@ export const H3 = styled.h3`
     font-size: 32px;
   }
 `
+export const RowSection = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  @media screen and (min-width: 760px) {
+    flex-direction: row;
+  }
+`
+export const Section = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
 
 export const P1 = styled.p`
   font-size: ${({ light }) => (light ? '50px' : '50px')};
@@ -124,3 +141,15 @@ export const P3 = styled.p`
     font-size: 28px;
   }
 `
+export const DarkShadow = '5px 10px 10px rgb(0, 0, 0, 0.2)'
+export const LightShadow = '5px 5px 10px rgb(0, 0, 0, 0.2)'
+const UnderlineStyle = styled.div`
+  width: 50px;
+  height: 2px;
+  background: black;
+  margin-top: 0;
+  margin-bottom: 30px;
+`
+export const Underline = () => {
+  return <UnderlineStyle></UnderlineStyle>
+}

@@ -6,7 +6,7 @@ import HomeNavLinks from './components/home-nav-links'
 export default function NavBar () {
   return (
     <Nav>
-      <Link>Logo</Link>
+      <Link to=''>Logo</Link>
       <HomeNavLinks />
     </Nav>
   )
