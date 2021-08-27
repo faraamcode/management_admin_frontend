@@ -82,7 +82,6 @@ export const H3 = styled.h3`
 export const RowSection = styled.div`
   width: 100%;
   display: flex;
-  background: yellow;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
