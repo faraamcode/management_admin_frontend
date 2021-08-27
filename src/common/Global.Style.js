@@ -6,12 +6,11 @@ export const Wrapper = styled.div`
   background: ${({ background }) => (background ? background : Grey)};
 
   width: 100%;
-  min-height: 90vh;
+  min-height: ${({ minHeight }) => (minHeight ? minHeight : '60vh')};
   padding: 30px 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   @media (max-width: 400px) {
     padding: 30px 30px;
     min-height: 70vh;
@@ -83,9 +82,15 @@ export const H3 = styled.h3`
 export const RowSection = styled.div`
   width: 100%;
   display: flex;
+  background: yellow;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  //   margin: 0 auto;
+  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : '100%')};
   @media screen and (min-width: 760px) {
     flex-direction: row;
+    justify-content: space-between;
   }
 `
 export const Section = styled.div`

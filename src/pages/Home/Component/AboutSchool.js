@@ -11,6 +11,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 600px;
 `
 const Heading = styled(H2)`
   font-size: 25px;
