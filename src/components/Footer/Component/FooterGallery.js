@@ -14,10 +14,10 @@ export default function FooterGallery () {
     <ContainerStyled>
       <h5>Our partners</h5>
       <ImageWrapper>
-        <img src={PartnerImage} />
-        <img src={PartnerImage} />
-        <img src={PartnerImage} />
-        <img src={PartnerImage} />
+        <img src={PartnerImage} width='100%' />
+        <img src={PartnerImage} width='100%' />
+        <img src={PartnerImage} width='100%' />
+        <img src={PartnerImage} width='100%' />
       </ImageWrapper>
     </ContainerStyled>
   )

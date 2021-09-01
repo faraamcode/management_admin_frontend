@@ -17,6 +17,9 @@ const BaseWrapper = styled(Wrapper)`
 const Container = styled.div`
   display: flex;
   color: white;
+  span {
+    margin-left: 15px;
+  }
 `
 const LinkStyle = styled(Link)`
   margin-right: 5px;

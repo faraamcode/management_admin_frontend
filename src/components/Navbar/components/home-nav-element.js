@@ -5,13 +5,10 @@ import { GoThreeBars } from 'react-icons/go'
 
 export const LinksList = styled.ul`
   display: flex;
-  max-width: 50%;
-  min-width: 400px;
-  justify-content: space-between;
   align-items: center;
+  min-width: 300px;
+  max-width: 100%;
   list-style: none;
-  margin-right: 30px;
-
   @media screen and (max-width: 650px) {
     display: none;
   }
@@ -21,7 +18,7 @@ export const LinkItem = styled.li`
 `
 
 export const Links = styled(Link)`
-  margin-left: 15px;
+  margin: 0 15px;
   text-decoration: none;
   color: black;
   &:hover {

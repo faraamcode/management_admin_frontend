@@ -55,6 +55,7 @@ const EventDate = styled.div`
   justify-content: center;
   border: 1px solid black;
   width: 60px;
+  min-width: 60px;
   height: 60px;
   h5 {
     margin: 0;
@@ -68,7 +69,7 @@ const EventDate = styled.div`
 const DetailsContainer = styled.div`
   margin: 0;
   padding: 0;
-  width: 300px;
+  //   width: 300px;
   margin-left: 30px;
   h5 {
     margin: 0;

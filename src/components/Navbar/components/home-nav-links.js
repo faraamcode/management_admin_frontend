@@ -14,6 +14,24 @@ export default function HomeNavLinks () {
         <LinkItem>
           <Links to='/'>Staff Portal</Links>
         </LinkItem>
+        <LinkItem>
+          <Links to='/'>Staff Portal</Links>
+        </LinkItem>
+        <LinkItem>
+          <Links to='/'>Staff Portal</Links>
+        </LinkItem>
+        <LinkItem>
+          <Links to='/'>Staff Portal</Links>
+        </LinkItem>
+        <LinkItem>
+          <Links to='/'>Staff Portal</Links>
+        </LinkItem>
+        <LinkItem>
+          <Links to='/'>Staff Portal</Links>
+        </LinkItem>
+        <LinkItem>
+          <Links to='/'>Staff Portal</Links>
+        </LinkItem>
         <MainButton title='Register' />
       </LinksList>
       <ToggleIcon />

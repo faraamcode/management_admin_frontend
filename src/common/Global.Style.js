@@ -147,6 +147,7 @@ export const P3 = styled.p`
 `
 export const DarkShadow = '5px 10px 10px rgb(0, 0, 0, 0.2)'
 export const LightShadow = '5px 5px 10px rgb(0, 0, 0, 0.2)'
+export const Transition = 'all 0.8s ease-in-out'
 const UnderlineStyle = styled.div`
   width: 50px;
   height: 2px;
