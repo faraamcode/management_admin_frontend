@@ -141,6 +141,20 @@ export default function Event ({}) {
           venue='assembly hall'
           title='Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
         />
+        <SingleEvent
+          time='9:00'
+          day='08'
+          month='Apr'
+          venue='assembly hall'
+          title='Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
+        />
+        <SingleEvent
+          time='9:00'
+          day='08'
+          month='Apr'
+          venue='assembly hall'
+          title='Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
+        />
         <ViewAllLink to='/'> Read more...</ViewAllLink>
       </EventsContainer>
     </Container>

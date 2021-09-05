@@ -9,28 +9,16 @@ export default function HomeNavLinks () {
     <>
       <LinksList>
         <LinkItem>
-          <Links to='/'>Student Portal</Links>
+          <Links to='/'>About us</Links>
         </LinkItem>
         <LinkItem>
-          <Links to='/'>Staff Portal</Links>
+          <Links to='/'>Contact us</Links>
         </LinkItem>
         <LinkItem>
-          <Links to='/'>Staff Portal</Links>
+          <Links to='/'>School calendar</Links>
         </LinkItem>
         <LinkItem>
-          <Links to='/'>Staff Portal</Links>
-        </LinkItem>
-        <LinkItem>
-          <Links to='/'>Staff Portal</Links>
-        </LinkItem>
-        <LinkItem>
-          <Links to='/'>Staff Portal</Links>
-        </LinkItem>
-        <LinkItem>
-          <Links to='/'>Staff Portal</Links>
-        </LinkItem>
-        <LinkItem>
-          <Links to='/'>Staff Portal</Links>
+          <Links to='/'>School Portal</Links>
         </LinkItem>
         <MainButton title='Register' />
       </LinksList>

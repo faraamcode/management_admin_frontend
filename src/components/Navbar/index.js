@@ -1,13 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Nav, NavLogoStyle } from './Navbar.style'
+import { Nav, NavLogoStyle, NavWrapper } from './Navbar.style'
 import HomeNavLinks from './components/home-nav-links'
 
 export default function NavBar () {
   return (
-    <Nav>
-      <NavLogoStyle to='/'>Logo</NavLogoStyle>
-      <HomeNavLinks />
-    </Nav>
+    <NavWrapper>
+      <Nav>
+        <NavLogoStyle to='/'>Logo</NavLogoStyle>
+        <HomeNavLinks />
+      </Nav>
+    </NavWrapper>
   )
 }

@@ -34,7 +34,7 @@ const NewLink = styled(StyleLink)`
   color: blue;
 `
 const SingleNewsWrapper = styled.div`
-  width: 350px;
+  width: 300px;
   display: flex;
   flex-direction: column;
 `

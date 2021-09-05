@@ -80,13 +80,15 @@ export const H3 = styled.h3`
   }
 `
 export const RowSection = styled.div`
+  align-self: center;
+  align-content: space-between;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   //   margin: 0 auto;
-  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : '100%')};
+  max-width: ${({ maxWidth }) => (maxWidth ? '1300px' : '1300px')};
   @media screen and (min-width: 760px) {
     flex-direction: row;
     justify-content: space-between;
@@ -97,6 +99,8 @@ export const Section = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  max-width: 1300px;
+  margin: 0 auto;
 `
 
 export const P1 = styled.p`
@@ -148,7 +152,7 @@ export const P3 = styled.p`
 export const DarkShadow = '5px 10px 10px rgb(0, 0, 0, 0.2)'
 export const LightShadow = '5px 5px 10px rgb(0, 0, 0, 0.2)'
 export const Transition = 'all 0.8s ease-in-out'
-const UnderlineStyle = styled.div`
+export const UnderlineStyle = styled.div`
   width: 50px;
   height: 2px;
   background: black;

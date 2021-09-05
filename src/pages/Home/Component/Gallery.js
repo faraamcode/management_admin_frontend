@@ -5,8 +5,10 @@ import GalleryImage from '../../../assets/images/cheerful.jpg'
 
 const GalleryGrid = styled.div`
   width: 100%;
-  min-height: 70vh;
+  // min-height: 70vh;
   display: grid;
+  max-width: 1300px;
+  align-self: center;
   @media screen and (min-width: 760px) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -17,7 +19,7 @@ const GalleryGrid = styled.div`
   @media screen and (min-width: 1000px) {
     grid-template-rows: repeat(2, 1fr);
     grid-template-areas:
-      '  a b c'
+      'a b c'
       'a d e';
   }
 `
@@ -25,7 +27,7 @@ const GalleryGrid = styled.div`
 //   max-height: 400px;
 const SingleGalleryStyle = styled.div`
   position: relative;
-  grid-area: ${({ gridArea }) => (gridArea ? gridArea : gridArea)};
+  grid-area: ${({ gridArea }) => (gridArea ? gridArea : null)};
   img {
     width: 100%;
     height: 100%;

@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   position: relative;
   padding: 0;
   width: 100%;
-  height: 100vh;
+  height: 70vh;
 `
 
 const ImageContainer = styled.div`
@@ -21,47 +21,90 @@ const ImageContainer = styled.div`
   }
 `
 const OtherImageContainer = styled.div`
-  opacity: ${({ position }) => (position == 4 ? 1 : 1)};
+  opacity: ${({ position }) => (position == 4 ? 0.3 : null)};
   width: ${({ position }) =>
-    position == 0 || position == 4 ? '100%' : '250px'};
-  height: ${({ position }) =>
     position == 0 || position == 4 ? '100%' : '300px'};
+  height: ${({ position }) =>
+    position == 0 || position == 4 ? '100%' : '250px'};
   position: ${({ position }) => (position == 0 ? null : 'absolute')};
   padding-right: ${({ position }) =>
     position == 0 || position == 4 ? 0 : '20px'};
-  transition: all 3s ease-in-out;
-  bottom: ${({ position }) => (position == 0 || position == 4 ? 0 : '40%')};
+  transition: all 3s linear;
   top: ${({ position }) => (position == 0 || position == 4 ? 0 : '40%')};
-  left: ${({ position }) => (position == 0 || position == 4 ? 0 : '45%')};
-  z-index: ${({ position }) => (position == 0 ? -1 : 3)};
+  right: ${({ position }) => (position == 0 || position == 4 ? 0 : '45%')};
+  z-index: ${({ position }) => (position == 0 ? -1 : 4)};
+  ${({ position }) => (position == 4 ? 'z-index: -2;' : null)}
   img {
     border-radius: ${({ position }) =>
       position == 0 || position == 4 ? 0 : '5px'};
     width: 100%;
     height: 100%;
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 760px) {
     ${({ position }) => (position !== 0 ? 'display: none;' : null)}
   }
   transform: translateX(
-    ${({ position }) => (position == 4 ? null : position)}00%
+    ${({ position }) => (position == 4 ? '-100%' : position)}00%
   );
+
+  div {
+    position: absolute;
+    left: 10%;
+    bottom: 10%;
+  }
+  h5 {
+    color: white;
+    max-width: ${({ position }) => (position == 0 ? '200px' : '100px')};
+    font-size: ${({ position }) => (position == 0 ? '40px' : '10px')};
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin: 0;
+  }
+  p {
+    color: white;
+    font-size: ${({ position }) => (position == 0 ? '10px' : '5px')};
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin: 0;
+  }
 `
 
-const HeroImage = () => {
-  return (
-    <ImageContainer>
-      <img src='https://res.cloudinary.com/faraamit/image/upload/v1600987519/_large_image_4_lni1se.jpg' />
-    </ImageContainer>
-  )
-}
-const OtherImage = ({ position, image }) => {
+const OtherImage = ({ position, image, title, text }) => {
   return (
     <OtherImageContainer position={position}>
       <img src={image} />
+      <div>
+        <h5>{title}</h5>
+        <p>{text}</p>
+      </div>
     </OtherImageContainer>
   )
 }
+
+const NavigationContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 40px;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  div {
+    width: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    height: 15px;
+    border-radius: 50%;
+    margin: 0 5px;
+    opacity: 1;
+  }
+`
+
 export default function Hero () {
   const [position, setPosition] = useState([0, 1, 2, 3, 4])
 
@@ -78,7 +121,7 @@ export default function Hero () {
     const IntervalFunction = setInterval(() => {
       RotatePosition(position)
       console.log(position)
-    }, 5000)
+    }, 10_000)
     return () => {
       clearInterval(IntervalFunction)
     }
@@ -89,20 +132,40 @@ export default function Hero () {
       <OtherImage
         image='https://res.cloudinary.com/faraamit/image/upload/v1601037172/images-12_b4a6ex.jpg'
         position={position[0]}
+        text='our school is one of the best'
+        title='roemichs'
       />
       <OtherImage
         image='https://res.cloudinary.com/faraamit/image/upload/v1599586342/slide2_ktghrp.jpg'
         position={position[1]}
+        text='our school is one of the best'
+        title='Early years and Primary'
       />
       <OtherImage
         image='https://res.cloudinary.com/faraamit/image/upload/v1600987519/_large_image_4_lni1se.jpg'
         position={position[2]}
+        text='our school is one of the best'
+        title='Primary'
       />
       <OtherImage
         image='https://res.cloudinary.com/faraamit/image/upload/v1595011299/sample.jpg'
         position={position[3]}
+        text='our school is one of the best'
+        title='Upper Primary'
       />
-      <OtherImage image={Image5} position={position[4]} />
+      <OtherImage
+        image='https://res.cloudinary.com/faraamit/image/upload/v1601037172/images-12_b4a6ex.jpg'
+        position={position[4]}
+        text='our school is one of the best'
+        title='secondary school'
+      />
+      <NavigationContainer>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </NavigationContainer>
     </Wrapper>
   )
 }

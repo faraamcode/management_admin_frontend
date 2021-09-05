@@ -8,7 +8,7 @@ import ContactForm from './Component/ContactForm'
 export default function SchoolNewsAndEvents () {
   return (
     <Wrapper>
-      <RowSection>
+      <RowSection maxWidth='1200px'>
         <AboutSchool
           heading='Lorem, ipsum dolor sit amet consectetur adipisicing elit'
           text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
