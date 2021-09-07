@@ -38,14 +38,14 @@ const SingleNewsWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
-const SingleNews = () => {
+const SingleNews = ({ title, info, image }) => {
   return (
     <SingleNewsWrapper>
       <NewsGallery>
-        <img src={NewsImage} />
-        <span>Lorem ipsum etsi.hwhehwhhjehj</span>
+        <img src={image} />
+        <span>{title}</span>
       </NewsGallery>
-      <NewLink>Loremebbsb sdjjsjdj kjdjjksd kskjdks jjdjhdnjnsndb</NewLink>
+      <NewLink>{info}</NewLink>
     </SingleNewsWrapper>
   )
 }
@@ -53,10 +53,26 @@ export default function News () {
   return (
     <Wrapper>
       <RowSection>
-        <SingleNews />
-        <SingleNews />
-        <SingleNews />
-        <SingleNews />
+        <SingleNews
+          title='Fire outbreak'
+          info='the fire outbreak in Jalingo claimed two lives. '
+          image='https://res.cloudinary.com/faraamit/image/upload/v1630948172/design/pexels-tima-miroshnichenko-5428267_tzx3uj.jpg'
+        />
+        <SingleNews
+          title='Fire outbreak'
+          info='the fire outbreak in Jalingo claimed two lives. '
+          image='https://res.cloudinary.com/faraamit/image/upload/v1630948172/design/pexels-tima-miroshnichenko-5428267_tzx3uj.jpg'
+        />
+        <SingleNews
+          title='Fire outbreak'
+          info='the fire outbreak in Jalingo claimed two lives. '
+          image='https://res.cloudinary.com/faraamit/image/upload/v1630948172/design/pexels-tima-miroshnichenko-5428267_tzx3uj.jpg'
+        />
+        <SingleNews
+          title='Fire outbreak'
+          info='the fire outbreak in Jalingo claimed two lives. '
+          image='https://res.cloudinary.com/faraamit/image/upload/v1630948172/design/pexels-tima-miroshnichenko-5428267_tzx3uj.jpg'
+        />
       </RowSection>
     </Wrapper>
   )

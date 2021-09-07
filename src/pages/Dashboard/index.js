@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import Info from './components/Info'
+import Modal from './components/Modal'
 
 const Wrapper = styled.div`
-  height: 90vh;
+  height: calc(100vh - 70px);
+  margin-top: 70px;
   flex: 1;
   padding: 30px 80px;
   display: flex;
+  overflow: auto;
   flex-direction: column;
-  justify-content: center;
   @media (max-width: 400px) {
     padding: 30px 30px;
     min-height: 70vh;
@@ -23,9 +26,23 @@ const Wrapper = styled.div`
   }
 `
 export default function DashboardHome () {
+  const [openModal, setOpenModal] = useState(false)
   return (
-    <Wrapper>
-      <h1>Dashboard</h1>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <Info setOpenModal={setOpenModal} />
+        <Info />
+        <Info />
+        <Info />
+        <Info />
+        <Info />
+        <Info />
+        <Info />
+        <Info />
+        <Info />
+        <Info />
+      </Wrapper>
+      {openModal && <Modal />}
+    </>
   )
 }

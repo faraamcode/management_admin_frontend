@@ -121,7 +121,7 @@ export default function Hero () {
     const IntervalFunction = setInterval(() => {
       RotatePosition(position)
       console.log(position)
-    }, 10_000)
+    }, 15_000)
     return () => {
       clearInterval(IntervalFunction)
     }
@@ -130,31 +130,31 @@ export default function Hero () {
   return (
     <Wrapper>
       <OtherImage
-        image='https://res.cloudinary.com/faraamit/image/upload/v1601037172/images-12_b4a6ex.jpg'
+        image='https://res.cloudinary.com/faraamit/image/upload/v1630948172/design/pexels-tima-miroshnichenko-5428267_tzx3uj.jpg'
         position={position[0]}
         text='our school is one of the best'
         title='roemichs'
       />
       <OtherImage
-        image='https://res.cloudinary.com/faraamit/image/upload/v1599586342/slide2_ktghrp.jpg'
+        image='https://res.cloudinary.com/faraamit/image/upload/v1630948116/design/pexels-max-fischer-5211430_rsts4i.jpg'
         position={position[1]}
         text='our school is one of the best'
         title='Early years and Primary'
       />
       <OtherImage
-        image='https://res.cloudinary.com/faraamit/image/upload/v1600987519/_large_image_4_lni1se.jpg'
+        image='https://res.cloudinary.com/faraamit/image/upload/v1630948074/design/pexels-max-fischer-5212703_k6bvht.jpg'
         position={position[2]}
         text='our school is one of the best'
         title='Primary'
       />
       <OtherImage
-        image='https://res.cloudinary.com/faraamit/image/upload/v1595011299/sample.jpg'
+        image='https://res.cloudinary.com/faraamit/image/upload/v1630947920/design/pexels-daria-shevtsova-942419_kcja4k.jpg'
         position={position[3]}
         text='our school is one of the best'
         title='Upper Primary'
       />
       <OtherImage
-        image='https://res.cloudinary.com/faraamit/image/upload/v1601037172/images-12_b4a6ex.jpg'
+        image='https://res.cloudinary.com/faraamit/image/upload/v1630948112/design/pexels-olia-danilevich-5088184_fp8urk.jpg'
         position={position[4]}
         text='our school is one of the best'
         title='secondary school'

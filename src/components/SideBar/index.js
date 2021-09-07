@@ -2,17 +2,24 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { IoIosArrowDown } from 'react-icons/io'
-import { FaAddressBook } from 'react-icons/fa'
+import { FaAddressBook, FaRegNewspaper } from 'react-icons/fa'
+import { MdEventAvailable, MdDomain } from 'react-icons/md'
+import { FcAbout } from 'react-icons/fc'
 import { Transition } from '../../common/Global.Style'
-import { Dark, White } from '../../utils/color'
+import { Dark, Grey, White } from '../../utils/color'
+import { logRoles } from '@testing-library/react'
 const Wrapper = styled.div`
   //   margin-top: 10px;
   width: 300px;
-  height: 90vh;
+  height: calc(100vh - 70px);
+  z-index: 5;
   background: ${White};
+  border-top: 2px solid rgba(0, 0, 0, 0.05);
+  border-right: 2px solid rgba(0, 0, 0, 0.05);
   //   opacity: 0.;
   //   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
   transition: all 0.8s ease-in-out;
+  margin-top: 70px;
   @media screen and (max-width: 650px) {
     width: 100%;
     height: 100%;
@@ -25,15 +32,18 @@ const Wrapper = styled.div`
   }
 `
 const MenuContainerStyle = styled.ul`
+  width: 100%;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
 `
 
 const MenuItemStyle = styled.li`
   list-style: none;
+  width: 100%;
   a {
     display: flex;
-
     justify-content: space-between;
     justify-items: center;
     text-decoration: none;
@@ -45,18 +55,23 @@ const MenuItemStyle = styled.li`
   }
   svg {
     margin-right: 10px;
+    color: black;
+  }
+  &:hover {
+    pointer: cursor;
+    background: rgba(0, 0, 0, 0.05);
   }
 `
 
-const MenuItem = () => {
+const MenuItem = ({ title, url, logo, subMenu }) => {
   return (
     <MenuItemStyle>
-      <Link to='/'>
+      <Link to={url}>
         <span>
-          <FaAddressBook />
-          Dashboard
+          {logo}
+          {title}
         </span>
-        <IoIosArrowDown />
+        {subMenu && <IoIosArrowDown />}
       </Link>
     </MenuItemStyle>
   )
@@ -67,11 +82,11 @@ function SideBar () {
   return (
     <Wrapper click={click} onClick={() => setClick(!click)}>
       <MenuContainerStyle>
-        <MenuItem />
-        <MenuItem />
-        <MenuItem />
-        <MenuItem />
-        <MenuItem />
+        <MenuItem title='Dashboard' url='/' logo={<FaAddressBook />} />
+        <MenuItem title='Hero Section' url='/' logo={<MdDomain />} />
+        <MenuItem title='About School' url='/' logo={<FcAbout />} />
+        <MenuItem title='School Events' url='/' logo={<MdEventAvailable />} />
+        <MenuItem title='School News' url='/' logo={<FaRegNewspaper />} />
       </MenuContainerStyle>
     </Wrapper>
   )
