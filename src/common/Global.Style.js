@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   background: ${({ background }) => (background ? background : Grey)};
 
   width: 100%;
-  min-height: ${({ minHeight }) => (minHeight ? minHeight : '60vh')};
+  min-height: ${({ minHeight }) => (minHeight ? minHeight : '70vh')};
   padding: 30px 80px;
   display: flex;
   flex-direction: column;
@@ -90,6 +90,7 @@ export const RowSection = styled.div`
   //   margin: 0 auto;
   max-width: ${({ maxWidth }) => (maxWidth ? '1300px' : '1300px')};
   @media screen and (min-width: 760px) {
+    margin-bottom: ${({ marginBottom }) => (marginBottom ? '80px' : null)};
     flex-direction: row;
     justify-content: space-between;
   }
@@ -162,3 +163,14 @@ export const UnderlineStyle = styled.div`
 export const Underline = () => {
   return <UnderlineStyle></UnderlineStyle>
 }
+
+export const CurveWrapper = styled.div`
+  width: 100%;
+  background-image: url('https://res.cloudinary.com/faraamit/image/upload/v1631032792/design/divider_irbuny.svg');
+  background-size: 900%;
+  background-position: bottom 1% left 50%;
+  background-repeat: no-repeat;
+  @media screen and (min-width: 760px) {
+    background-size: 600%;
+  }
+`

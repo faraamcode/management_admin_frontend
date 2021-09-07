@@ -47,10 +47,18 @@ const OtherImageContainer = styled.div`
     ${({ position }) => (position == 4 ? '-100%' : position)}00%
   );
 
-  div {
+  > div {
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
     position: absolute;
-    left: 10%;
-    bottom: 10%;
+    left: 0%;
+    bottom: 0%;
+    height: 100%;
+    div {
+      position: absolute;
+      left: 10%;
+      bottom: 10%;
+    }
   }
   h5 {
     color: white;
@@ -74,8 +82,10 @@ const OtherImage = ({ position, image, title, text }) => {
     <OtherImageContainer position={position}>
       <img src={image} />
       <div>
-        <h5>{title}</h5>
-        <p>{text}</p>
+        <div>
+          <h5>{title}</h5>
+          <p>{text}</p>
+        </div>
       </div>
     </OtherImageContainer>
   )

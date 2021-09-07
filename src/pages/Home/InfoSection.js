@@ -39,7 +39,7 @@ const LogoContainer = styled.div`
 `
 export default function InfoSection () {
   return (
-    <Wrapper>
+    <Wrapper background='#CCCCCC'>
       <Section>
         <HeadingWrapper>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia,

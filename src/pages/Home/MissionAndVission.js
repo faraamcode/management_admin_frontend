@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { RowSection, Wrapper } from '../../common/Global.Style'
+import { CurveWrapper, RowSection, Wrapper } from '../../common/Global.Style'
 import VissionImage from '../../assets/images/Vission.png'
 import SchoolImage from '../../assets/images/School-Icon.png'
 
@@ -43,7 +43,7 @@ const SingleInfo = ({ image, text, title }) => {
 }
 export default function MissionAndVission () {
   return (
-    <Wrapper minHeight='40vh'>
+    <Wrapper minHeight='40vh' background='#cccccc'>
       <RowSection maxWidth='1200px'>
         <SingleInfo
           image='https://res.cloudinary.com/faraamit/image/upload/v1630415082/mission_pc3p7y.png'

@@ -9,9 +9,9 @@ function App () {
     <>
       <BrowserRouter>
         <NavBar />
-        <Layout />
-        {/* <Home /> */}
-        {/* <Footer /> */}
+        {/* <Layout /> */}
+        <Home />
+        <Footer />
       </BrowserRouter>
     </>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Wrapper } from '../../../common/Global.Style'
+import { CurveWrapper, Wrapper } from '../../../common/Global.Style'
 import styled from 'styled-components'
 import GalleryImage from '../../../assets/images/cheerful.jpg'
 
@@ -66,14 +66,16 @@ const SingleGallery = ({ gridArea }) => {
 }
 export default function Gallery () {
   return (
-    <Wrapper>
-      <GalleryGrid>
-        <SingleGallery gridArea='a' />
-        <SingleGallery gridArea='b' />
-        <SingleGallery gridArea='c' />
-        <SingleGallery gridArea='d' />
-        <SingleGallery gridArea='e' />
-      </GalleryGrid>
-    </Wrapper>
+    <CurveWrapper>
+      <Wrapper background='white'>
+        <GalleryGrid>
+          <SingleGallery gridArea='a' />
+          <SingleGallery gridArea='b' />
+          <SingleGallery gridArea='c' />
+          <SingleGallery gridArea='d' />
+          <SingleGallery gridArea='e' />
+        </GalleryGrid>
+      </Wrapper>
+    </CurveWrapper>
   )
 }

@@ -6,56 +6,59 @@ import {
   RowSection,
   Underline,
   UnderlineStyle,
-  Wrapper
+  Wrapper,
+  CurveWrapper
 } from '../../common/Global.Style'
 
 export default function StudentInfo () {
   return (
-    <Wrapper>
-      <Title>Our student Perspectives</Title>
-      <UnderlineCenter></UnderlineCenter>
-      <ImageWrapper>
-        <div>
-          <img src={Image1} />
-          <img src={Image1} />
-          <img src={Image2} />
-          <img src={Image1} />
-          <img src={Image2} />
-          <img src={Image1} />
-          <img src={Image1} />
-        </div>
-      </ImageWrapper>
-      <UserTitle>
-        <h5>Lorem Ipsum</h5>
-        <span>Microsoft</span>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-          officia laborum praesentium distinctio libero doloremque eveniet porro
-          culpa dolorem explicabo sunt, quam suscipit voluptate itaque molestiae
-          ullam eaque similique beatae.Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Quibusdam officia laborum praesentium distinctio
-          libero doloremque eveniet porro culpa dolorem explicabo sunt, quam
-          suscipit voluptate itaque molestiae ullam eaque similique beatae.Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Quibusdam officia
-          laborum praesentium distinctio libero doloremque eveniet porro culpa
-          dolorem explicabo sunt, quam suscipit voluptate itaque molestiae ullam
-          eaque similique beatae.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-          officia laborum praesentium distinctio libero doloremque eveniet porro
-          culpa dolorem explicabo sunt, quam suscipit voluptate itaque molestiae
-          ullam eaque similique beatae.Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Quibusdam officia laborum praesentium distinctio
-          libero doloremque eveniet porro culpa dolorem explicabo sunt, quam
-          suscipit voluptate itaque molestiae ullam eaque similique beatae.Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Quibusdam officia
-          laborum praesentium distinctio libero doloremque eveniet porro culpa
-          dolorem explicabo sunt, quam suscipit voluptate itaque molestiae ullam
-          eaque similique beatae.
-        </p>
-      </UserTitle>
-    </Wrapper>
+    <CurveWrapper>
+      <Wrapper background='rgb(255,255,255, 0.8)'>
+        <Title>Our student Perspectives</Title>
+        <UnderlineCenter></UnderlineCenter>
+        <ImageWrapper>
+          <div>
+            <img src={Image1} />
+            <img src={Image1} />
+            <img src={Image2} />
+            <img src={Image1} />
+            <img src={Image2} />
+            <img src={Image1} />
+            <img src={Image1} />
+          </div>
+        </ImageWrapper>
+        <UserTitle>
+          <h5>Lorem Ipsum</h5>
+          <span>Microsoft</span>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+            officia laborum praesentium distinctio libero doloremque eveniet
+            porro culpa dolorem explicabo sunt, quam suscipit voluptate itaque
+            molestiae ullam eaque similique beatae.Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Quibusdam officia laborum praesentium
+            distinctio libero doloremque eveniet porro culpa dolorem explicabo
+            sunt, quam suscipit voluptate itaque molestiae ullam eaque similique
+            beatae.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Quibusdam officia laborum praesentium distinctio libero doloremque
+            eveniet porro culpa dolorem explicabo sunt, quam suscipit voluptate
+            itaque molestiae ullam eaque similique beatae.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+            officia laborum praesentium distinctio libero doloremque eveniet
+            porro culpa dolorem explicabo sunt, quam suscipit voluptate itaque
+            molestiae ullam eaque similique beatae.Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Quibusdam officia laborum praesentium
+            distinctio libero doloremque eveniet porro culpa dolorem explicabo
+            sunt, quam suscipit voluptate itaque molestiae ullam eaque similique
+            beatae.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Quibusdam officia laborum praesentium distinctio libero doloremque
+            eveniet porro culpa dolorem explicabo sunt, quam suscipit voluptate
+            itaque molestiae ullam eaque similique beatae.
+          </p>
+        </UserTitle>
+      </Wrapper>
+    </CurveWrapper>
   )
 }
 {
