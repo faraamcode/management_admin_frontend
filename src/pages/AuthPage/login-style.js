@@ -53,13 +53,14 @@ export const FormTitle = styled.h1`
   font-size: 30px;
 `
 
-export const InputStye = styled.div`
+export const InputStyle = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
   height: 50px;
   border-radius: 5px;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border: 1px solid black;
   padding: 10px 10px;
   svg {
