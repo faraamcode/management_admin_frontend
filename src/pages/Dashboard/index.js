@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Form from './components/Form'
 import Info from './components/Info'
 import Modal from './components/Modal'
+import Succesful from './components/Succesful'
 
 const Wrapper = styled.div`
   height: calc(100vh - 70px);
@@ -42,7 +44,7 @@ export default function DashboardHome () {
         <Info />
         <Info />
       </Wrapper>
-      {openModal && <Modal />}
+      {/* <Form /> */}
     </>
   )
 }

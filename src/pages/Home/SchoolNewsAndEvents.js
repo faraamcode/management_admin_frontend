@@ -18,7 +18,7 @@ export default function SchoolNewsAndEvents () {
           ullam eaque similique beatae.'
             linkText='Read more...'
             url='/'
-            image={SchoolImg}
+            image='https://res.cloudinary.com/faraamit/image/upload/v1630948051/design/pexels-max-fischer-5212329_yu7wtl.jpg'
           />
           <Event />
           <ContactForm />

@@ -11,7 +11,11 @@ export default function ContactForm () {
   `
   return (
     <BigCard>
-      <img width='100%' height='50%' src={ContactImage} />
+      <img
+        width='100%'
+        height='50%'
+        src='https://res.cloudinary.com/faraamit/image/upload/v1630948086/design/pexels-pixabay-263564_nhgcfu.jpg'
+      />
       <Input name='name' placeholder='enter your name *' />
       <Input name='email' placeholder='enter your email *' />
       <Input name='phone' placeholder='enter your phone *' />

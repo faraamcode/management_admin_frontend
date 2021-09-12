@@ -54,10 +54,10 @@ const SingleGalleryStyle = styled.div`
   }
 `
 
-const SingleGallery = ({ gridArea }) => {
+const SingleGallery = ({ gridArea, image }) => {
   return (
     <SingleGalleryStyle gridArea={gridArea}>
-      <img src={GalleryImage} />
+      <img src={image} />
       <div>
         <h5>lorem ipsum lorem ipsum lorem ipsum</h5>
       </div>
@@ -69,11 +69,26 @@ export default function Gallery () {
     <CurveWrapper>
       <Wrapper background='white'>
         <GalleryGrid>
-          <SingleGallery gridArea='a' />
-          <SingleGallery gridArea='b' />
-          <SingleGallery gridArea='c' />
-          <SingleGallery gridArea='d' />
-          <SingleGallery gridArea='e' />
+          <SingleGallery
+            gridArea='a'
+            image='https://res.cloudinary.com/faraamit/image/upload/v1630947920/design/pexels-daria-shevtsova-942419_kcja4k.jpg'
+          />
+          <SingleGallery
+            gridArea='b'
+            image='https://res.cloudinary.com/faraamit/image/upload/v1630947862/design/pexels-andrea-piacquadio-3755511_nmdtmt.jpg'
+          />
+          <SingleGallery
+            gridArea='c'
+            image='https://res.cloudinary.com/faraamit/image/upload/v1630947972/design/pexels-eberhard-grossgasteiger-629162_nw59m5.jpg'
+          />
+          <SingleGallery
+            gridArea='d'
+            image='https://res.cloudinary.com/faraamit/image/upload/v1630948170/design/pexels-werner-pfennig-6950229_iu9cfm.jpg'
+          />
+          <SingleGallery
+            gridArea='e'
+            image='https://res.cloudinary.com/faraamit/image/upload/v1630948153/design/pexels-rodnae-productions-6257544_gzuciw.jpg'
+          />
         </GalleryGrid>
       </Wrapper>
     </CurveWrapper>

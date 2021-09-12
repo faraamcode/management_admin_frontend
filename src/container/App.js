@@ -4,14 +4,16 @@ import { Wrapper } from '../common/Global.Style'
 import Home from '../pages/Home/index'
 import Footer from '../components/Footer'
 import Layout from './Layout'
+import Login from '../pages/Login'
 function App () {
   return (
     <>
       <BrowserRouter>
-        <NavBar />
+        <Login />
+        {/* <NavBar /> */}
         {/* <Layout /> */}
-        <Home />
-        <Footer />
+        {/* <Home /> */}
+        {/* <Footer /> */}
       </BrowserRouter>
     </>
   )

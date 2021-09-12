@@ -2,12 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Form from './Form'
 
-export default function Modal () {
-  return (
-    <Wrapper>
-      <Form />
-    </Wrapper>
-  )
+export default function Modal ({ children }) {
+  return <Wrapper>{children}</Wrapper>
 }
 
 const Wrapper = styled.div`

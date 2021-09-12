@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { ButtonStyle } from '../../../components/Button'
-
+import Modal from './Modal'
 const Input = ({ type = 'text', name, placeholder, value }) => {
   if (type == 'file') {
     return <input type={type} name={name} value={value} />
@@ -20,16 +20,18 @@ const Input = ({ type = 'text', name, placeholder, value }) => {
 }
 export default function Form () {
   return (
-    <Wrapper>
-      <h4>Form Title</h4>
-      <div>
-        <img src='https://res.cloudinary.com/faraamit/image/upload/v1630948112/design/pexels-olia-danilevich-5088184_fp8urk.jpg' />
-        <Input type='file' name='image' />
-      </div>
-      <Input type='text' placeholder='enter your title' />
-      <Input type='textarea' placeholder='enter your title' />
-      <ButtonStyle>Save</ButtonStyle>
-    </Wrapper>
+    <Modal>
+      <Wrapper>
+        <h4>Form Title</h4>
+        <div>
+          <img src='https://res.cloudinary.com/faraamit/image/upload/v1630948112/design/pexels-olia-danilevich-5088184_fp8urk.jpg' />
+          <Input type='file' name='image' />
+        </div>
+        <Input type='text' placeholder='enter your title' />
+        <Input type='textarea' placeholder='enter your title' />
+        <ButtonStyle>Save</ButtonStyle>
+      </Wrapper>
+    </Modal>
   )
 }
 
