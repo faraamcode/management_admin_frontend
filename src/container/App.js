@@ -7,20 +7,24 @@ import DashboardLayout from './Layout'
 import Login from '../pages/AuthPage/login'
 import PasswordReset from '../pages/AuthPage/password-reset'
 import { AuthServiceProvider } from '../services/auth.service'
+import { Provider } from 'react-redux'
+import store from '../redux/store'
 function App () {
   return (
     <>
       <AuthServiceProvider>
-        <BrowserRouter>
-          <NavBar />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/dashboard' component={DashboardLayout} />
-            <Route exact path='/password/reset' component={PasswordReset} />
-          </Switch>
-          {/* <Footer /> */}
-        </BrowserRouter>
+        <Provider store={store}>
+          <BrowserRouter>
+            <NavBar />
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/login' component={Login} />
+              <Route exact path='/dashboard' component={DashboardLayout} />
+              <Route exact path='/password/reset' component={PasswordReset} />
+            </Switch>
+            {/* <Footer /> */}
+          </BrowserRouter>
+        </Provider>
       </AuthServiceProvider>
     </>
   )
