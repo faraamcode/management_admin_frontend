@@ -12,7 +12,6 @@ import LoginImage from '../../assets/images/login.jpg'
 import { ButtonStyle, StyleLink } from '../../components/Button'
 import Modal from '../Dashboard/components/Modal'
 import styled from 'styled-components'
-
 const Login = () => {
   return (
     <>

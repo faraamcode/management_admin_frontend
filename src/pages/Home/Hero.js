@@ -117,7 +117,6 @@ const NavigationContainer = styled.div`
 
 export default function Hero () {
   const [position, setPosition] = useState([0, 1, 2, 3, 4])
-
   const RotatePosition = position => {
     const newPosition = position.map(position => {
       if (position >= 4) {

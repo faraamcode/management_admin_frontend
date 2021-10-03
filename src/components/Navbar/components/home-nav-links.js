@@ -20,6 +20,9 @@ const HomeNavLink = () => {
         <Links to='/'>Contact us</Links>
       </LinkItem>
       <LinkItem>
+        <Links to='/'>Admission</Links>
+      </LinkItem>
+      <LinkItem>
         <Links to='/'>School calendar</Links>
       </LinkItem>
       <LinkItem>
@@ -46,8 +49,8 @@ const UserProfile = () => {
 export default function HomeNavLinks () {
   return (
     <>
-      {/* <HomeNavLink /> */}
-      <UserProfile />
+      <HomeNavLink />
+      {/* <UserProfile /> */}
       <ToggleIcon />
     </>
   )
