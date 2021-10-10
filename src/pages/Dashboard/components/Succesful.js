@@ -5,21 +5,23 @@ import styled from 'styled-components'
 import { GiCheckMark, GiCancel } from 'react-icons/gi'
 import { ButtonStyle } from '../../../components/Button'
 
-export default function Succesful ({}) {
+export default function Succesful ({ message, type }) {
   return (
     <Modal>
       <Wrapper>
-        {/* <div>
-          <GiCheckMark />
-        </div> */}
-        <GiCancel />
-        <h3>Updated Successfully</h3>
+        {type === 'error' ? (
+          <GiCancel />
+        ) : (
+          <div>
+            <GiCheckMark />
+          </div>
+        )}
+        <h3>{message}</h3>
         <ButtonStyle>Ok</ButtonStyle>
       </Wrapper>
     </Modal>
   )
 }
-
 const Wrapper = styled.div`
   min-width: 250px;
   min-height: 250px;

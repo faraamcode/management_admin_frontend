@@ -1,5 +1,7 @@
 import React from 'react'
+import { useAuthContext } from '../../../services/auth.service'
 import { MainButton } from '../../Button'
+import { useSelector } from 'react-redux'
 import {
   LinkItem,
   LinksList,
@@ -34,12 +36,13 @@ const HomeNavLink = () => {
 }
 
 const UserProfile = () => {
+  const profileInfo = useSelector(state => state.Profile?.profile)
   return (
     <LinksList>
       <LinkItem>
         <Links to='/'>
           <UserIcon />
-          <span>Adebisi</span>
+          <span>{profileInfo ? profileInfo.user_email : ''}</span>
         </Links>
       </LinkItem>
       {/* <MainButton title='Login' /> */}
@@ -47,10 +50,12 @@ const UserProfile = () => {
   )
 }
 export default function HomeNavLinks () {
+  const { token } = useAuthContext()
+
   return (
     <>
-      <HomeNavLink />
-      {/* <UserProfile /> */}
+      {!token ? <HomeNavLink /> : <UserProfile />}
+
       <ToggleIcon />
     </>
   )

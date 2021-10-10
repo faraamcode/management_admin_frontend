@@ -1,5 +1,14 @@
 import { CheckBoxWrapper, InputStyle } from '../login-style'
-const Input = ({ type, icon, placeholder, name, label }) => {
+const Input = ({
+  type,
+  icon,
+  value,
+  handleChange,
+  placeholder,
+  name,
+  label,
+  required
+}) => {
   if (type == 'checkbox') {
     return (
       <CheckBoxWrapper>
@@ -12,7 +21,14 @@ const Input = ({ type, icon, placeholder, name, label }) => {
   return (
     <InputStyle>
       {icon}
-      <input type={type} placeholder={placeholder} name={name} />
+      <input
+        value={value}
+        onChange={handleChange}
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        required={required}
+      />
     </InputStyle>
   )
 }

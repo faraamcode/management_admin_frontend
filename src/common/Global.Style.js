@@ -174,3 +174,7 @@ export const CurveWrapper = styled.div`
     background-size: 600%;
   }
 `
+export const InputError = styled.p`
+  color: red;
+  font-size: 14px;
+`

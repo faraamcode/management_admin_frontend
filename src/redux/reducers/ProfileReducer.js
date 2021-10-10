@@ -1,33 +1,31 @@
-import { AuthActions } from '../Common/AuthActions'
+import { ProfileActions } from '../Common/ProfileAction'
 
 const initialState = {
   loading: false,
   error: null,
   success: false,
-  token: null,
-  validationError: null
+  profile: null
 }
 
-export const authReducer = (
+export const profileReducer = (
   state = initialState,
   { type, payload, error, validationError }
 ) => {
   switch (type) {
-    case AuthActions.LOGIN_SUCCESS:
+    case ProfileActions.FETCH_PROFILE_SUCCESS:
       return {
         ...state,
         loading: false,
-        token: payload,
+        profile: payload,
         success: true
       }
-    case AuthActions.LOGIN_FAILED:
+    case ProfileActions.FETCH_PROFILE_FAILED:
       return {
         ...state,
         loading: false,
-        error,
-        validationError
+        error
       }
-    case AuthActions.LOGIN_REQUEST:
+    case ProfileActions.FETCH_PROFILE_REQUEST:
       return {
         ...state,
         loading: true

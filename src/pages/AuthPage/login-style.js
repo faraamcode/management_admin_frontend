@@ -18,7 +18,7 @@ export const Container = styled.div`
   align-items: center;
   padding: 20px 30px;
 `
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   //   min-width: 300px;
   width: 600px;
   //   min-height: 300px;
