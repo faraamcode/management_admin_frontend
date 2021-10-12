@@ -1,17 +1,34 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import Form from '../components/Form'
 import Info from '../components/Info'
-import Modal from '../components/Modal'
-import Succesful from '../components/Succesful'
 import { Wrapper } from '../components/main.style'
+import { useModalContext } from '../../../context/modal.context'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchAbout } from '../../../redux/Actions/AboutActionCreator'
+import { useAuthContext } from '../../../services/auth.service'
 
 export default function About () {
-  const [openModal, setOpenModal] = useState(false)
+  const About = useSelector(state => state.About)
+  const dispatch = useDispatch()
+  const { token } = useAuthContext()
+  console.log(token)
+  React.useEffect(() => {
+    dispatch(fetchAbout(token))
+  }, [])
+  const { openModal, setOpenModal } = useModalContext()
   return (
     <>
       <Wrapper>
-        <Info setOpenModal={setOpenModal} />
+        {About.success &&
+          About.about.map(item => (
+            <Info
+              key={item.id}
+              image={item['image_url']}
+              title={item['about_title']}
+              text={item['about_info']}
+              setOpenModal={setOpenModal}
+            />
+          ))}
       </Wrapper>
       {openModal && <Form />}
     </>

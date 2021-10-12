@@ -24,7 +24,7 @@ const HomeCardStyle = styled(CardStyle)`
   }
   p {
     margin: 0;
-    padding: 0;
+    padding: 0 !important;
   }
   svg {
     font-size: 60px;

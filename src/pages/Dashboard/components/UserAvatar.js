@@ -54,6 +54,6 @@ const Wrapper = styled.div`
   p {
     font-weight: 100;
     text-align: left;
-    padding: 0;
+    padding: 0 !important;
   }
 `

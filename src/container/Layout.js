@@ -19,9 +19,9 @@ export default function Layout () {
     }
   }, [])
 
-  // if (!token || token == null) {
-  //   history.replace('/login')
-  // }
+  if (!token || token == null) {
+    history.replace('/login')
+  }
   const Wrapper = styled.div`
     width: 100%;
     min-height: 90vh;

@@ -137,11 +137,6 @@ function SideBar () {
           logo={<FaRegNewspaper />}
         />
         <MenuItem
-          title='Mission'
-          url={DASHBOARD_MISSION_URL}
-          logo={<FaRegNewspaper />}
-        />
-        <MenuItem
           title='News'
           url={DASHBOARD_NEWS_URL}
           logo={<FaRegNewspaper />}

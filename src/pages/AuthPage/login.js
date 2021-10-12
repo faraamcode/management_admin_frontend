@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Succesful from '../Dashboard/components/Succesful'
 import { InputError } from '../../common/Global.Style'
 import { useAuthContext } from '../../services/auth.service'
+import { useModalContext } from '../../context/modal.context'
 const Login = () => {
   const history = useHistory()
   const [formData, setFormData] = useState({
@@ -25,20 +26,19 @@ const Login = () => {
     password: ''
   })
   const { setToken, token } = useAuthContext()
+  const { setOpenModal, openModal } = useModalContext()
   const loginState = useSelector(state => state?.Authentication)
-  console.log('hiii')
-  const dispatch = useDispatch()
 
+  const dispatch = useDispatch()
   const handleChangeValue = useCallback(e => {
     return setFormData(prevState => ({
       ...prevState,
       [e.target.name]: e.target.value
     }))
   })
+  console.log(openModal)
+  console.log(loginState.error)
 
-  // if (loginState.success) {
-  //   // history.replace('/dashboard')
-  // }
   React.useEffect(() => {
     if (token) {
       history.replace('/dashboard')
@@ -48,8 +48,15 @@ const Login = () => {
   React.useEffect(() => {
     if (loginState.success) {
       setToken({ token: loginState.token, expires: 800 })
+      setOpenModal(true)
     }
   }, [loginState.success])
+  React.useEffect(() => {
+    if (loginState.error) {
+      setOpenModal(true)
+    }
+  }, [loginState.error])
+
   return (
     <>
       <Wrapper>

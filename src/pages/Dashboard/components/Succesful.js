@@ -4,8 +4,11 @@ import MarkImage from '../../../assets/images/mark.jpg'
 import styled from 'styled-components'
 import { GiCheckMark, GiCancel } from 'react-icons/gi'
 import { ButtonStyle } from '../../../components/Button'
+import { useModalContext } from '../../../context/modal.context'
 
 export default function Succesful ({ message, type }) {
+  const { closeModal } = useModalContext()
+
   return (
     <Modal>
       <Wrapper>
@@ -17,7 +20,7 @@ export default function Succesful ({ message, type }) {
           </div>
         )}
         <h3>{message}</h3>
-        <ButtonStyle>Ok</ButtonStyle>
+        <ButtonStyle onClick={() => closeModal()}>Ok</ButtonStyle>
       </Wrapper>
     </Modal>
   )

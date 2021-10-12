@@ -3,20 +3,20 @@ import styled from 'styled-components'
 import { DarkShadow, LightShadow } from '../../../common/Global.Style'
 import { ButtonStyle } from '../../../components/Button'
 import Modal from './Modal'
-export default function Info ({ setOpenModal }) {
+export default function Info ({ setOpenModal, image, text, title }) {
   return (
     <>
       <Wrapper>
         <div>
-          <img src='https://res.cloudinary.com/faraamit/image/upload/v1630948112/design/pexels-olia-danilevich-5088184_fp8urk.jpg' />
+          <img src={image} />
         </div>
         <div>
-          <h4>Title</h4>
-          <p>lorem ipsum</p>
+          <h4>{title}</h4>
+          <p>{text}</p>
         </div>
         <div>
           <ButtonStyle background='green' onClick={() => setOpenModal(true)}>
-            View
+            Add
           </ButtonStyle>
           <ButtonStyle background='blue' onClick={() => setOpenModal(true)}>
             Edit

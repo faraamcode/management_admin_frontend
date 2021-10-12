@@ -9,23 +9,26 @@ import PasswordReset from '../pages/AuthPage/password-reset'
 import { AuthServiceProvider } from '../services/auth.service'
 import { Provider } from 'react-redux'
 import store from '../redux/store'
+import { ModalContextProvider } from '../context/modal.context'
 function App () {
   return (
     <>
-      <AuthServiceProvider>
-        <Provider store={store}>
-          <BrowserRouter>
-            <NavBar />
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/login' component={Login} />
-              <Route path='/dashboard' component={DashboardLayout} />
-              <Route exact path='/password/reset' component={PasswordReset} />
-            </Switch>
-            {/* <Footer /> */}
-          </BrowserRouter>
-        </Provider>
-      </AuthServiceProvider>
+      <ModalContextProvider>
+        <AuthServiceProvider>
+          <Provider store={store}>
+            <BrowserRouter>
+              <NavBar />
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route exact path='/login' component={Login} />
+                <Route path='/dashboard' component={DashboardLayout} />
+                <Route exact path='/password/reset' component={PasswordReset} />
+              </Switch>
+              {/* <Footer /> */}
+            </BrowserRouter>
+          </Provider>
+        </AuthServiceProvider>
+      </ModalContextProvider>
     </>
   )
 }
