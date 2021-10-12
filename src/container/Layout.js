@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Route, Switch, useHistory } from 'react-router'
-import DashboardHome from '../pages/Dashboard'
+import About from '../pages/Dashboard/pages/About'
 import SideBar from '../components/SideBar'
 import { useAuthContext } from '../services/auth.service'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchUser } from '../redux/Actions/ProfileActionCreator'
+import Home from '../pages/Dashboard/pages/Home'
 
 export default function Layout () {
   const history = useHistory()
@@ -30,8 +31,8 @@ export default function Layout () {
   return (
     <Wrapper>
       <SideBar />
-      <Route exact path='/dashboard/about' component={DashboardHome} />
-      <Route exact path='/dashboard/hero' component={DashboardHome} />
+      <Route exact path='/dashboard' component={Home} />
+      <Route exact path='/dashboard/about' component={About} />
     </Wrapper>
   )
 }

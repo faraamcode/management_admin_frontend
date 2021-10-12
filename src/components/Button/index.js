@@ -14,7 +14,8 @@ export const MainButtonStyle = styled.button`
   }
 `
 export const ButtonStyle = styled.button`
-  background-color: #e36414;
+  background-color: ${({ background }) =>
+    background ? background : '#e36414'};
   color: #fff;
   padding: 10px 30px;
   border-radius: 6px;
