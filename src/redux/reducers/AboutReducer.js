@@ -8,6 +8,12 @@ const initialState = {
   createLoading: false,
   createError: null,
   createSuccess: null,
+  editLoading: false,
+  editError: null,
+  editSuccess: null,
+  deleteLoading: false,
+  deleteError: null,
+  deleteSuccess: null,
   validateError: null
 }
 
@@ -61,6 +67,38 @@ export const aboutReducer = (
         ...state,
         createLoading: true
       }
+    case AboutActions.EDIT_ABOUT_FAILED:
+      return {
+        ...state,
+        editError: error
+      }
+    case AboutActions.EDIT_ABOUT_REQUEST:
+      return {
+        ...state,
+        editLoading: true
+      }
+    case AboutActions.EDIT_ABOUT_SUCCESS:
+      return {
+        ...state,
+        editLoading: false,
+        editSuccess: payload
+      }
+    case AboutActions.DELETE_ABOUT_FAILED:
+      return {
+        ...state,
+        deleteError: error
+      }
+    case AboutActions.DELETE_ABOUT_REQUEST:
+      return {
+        ...state,
+        deleteLoading: true
+      }
+    case AboutActions.DELETE_ABOUT_SUCCESS:
+      return {
+        ...state,
+        deleteLoading: false,
+        deleteSuccess: payload
+      }
     case AboutActions.CLEAR_ABOUT:
       return {
         ...state,
@@ -70,7 +108,13 @@ export const aboutReducer = (
         validateError: null,
         loading: false,
         error: null,
-        success: false
+        success: false,
+        editLoading: false,
+        editError: null,
+        editSuccess: null,
+        deleteLoading: false,
+        deleteError: null,
+        deleteSuccess: null
       }
 
     default:

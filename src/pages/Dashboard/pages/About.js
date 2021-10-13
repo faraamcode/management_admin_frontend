@@ -26,6 +26,7 @@ export default function About () {
           About.about.map(item => (
             <Info
               key={item.id}
+              id={item.id}
               image={item['image_url']}
               title={item['about_title']}
               text={item['about_info']}

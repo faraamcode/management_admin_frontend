@@ -1,9 +1,37 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { DarkShadow, LightShadow } from '../../../common/Global.Style'
 import { ButtonStyle } from '../../../components/Button'
+import { useModalContext } from '../../../context/modal.context'
+import {
+  clearAbout,
+  deleteAbout,
+  fetchAbout
+} from '../../../redux/Actions/AboutActionCreator'
+import { useAuthContext } from '../../../services/auth.service'
 import Modal from './Modal'
-export default function Info ({ setOpenModal, image, text, title }) {
+export default function Info ({ setOpenModal, image, text, title, id }) {
+  const dispatch = useDispatch()
+  const { token } = useAuthContext()
+  const { setEdit } = useModalContext()
+  const handleEdit = React.useCallback(id => {
+    setOpenModal(true)
+    setEdit(id)
+  })
+
+  const { deleteSuccess, deleteLoading, deleteError } = useSelector(
+    state => state.About
+  )
+  console.log(deleteLoading)
+  // React.useEffect(() => {
+  //   dispatch(fetchAbout(token))
+  //   dispatch(clearAbout())
+  // }, [deleteSuccess])
+  const handleDelete = React.useCallback(id => {
+    dispatch(deleteAbout(token, id))
+  })
+
   return (
     <>
       <Wrapper>
@@ -15,10 +43,12 @@ export default function Info ({ setOpenModal, image, text, title }) {
           <p>{text}</p>
         </div>
         <div>
-          <ButtonStyle background='blue' onClick={() => setOpenModal(true)}>
+          <ButtonStyle background='blue' onClick={() => handleEdit(id)}>
             Edit
           </ButtonStyle>
-          <ButtonStyle onClick={() => setOpenModal(true)}>Delete</ButtonStyle>
+          <ButtonStyle onClick={() => handleDelete(id)}>
+            {deleteLoading ? 'Deleting' : 'Delete'}
+          </ButtonStyle>
         </div>
       </Wrapper>
     </>

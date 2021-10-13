@@ -6,7 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   clearAbout,
   createAbout,
-  fetchAbout
+  fetchAbout,
+  updateAbout
 } from '../../../redux/Actions/AboutActionCreator'
 import { useAuthContext } from '../../../services/auth.service'
 import { InputError } from '../../../common/Global.Style'
@@ -50,7 +51,7 @@ const Input = ({ type = 'text', name, placeholder, value, handleChange }) => {
 export default function Form () {
   const dispatch = useDispatch()
   const { token } = useAuthContext()
-  const { closeModal } = useModalContext()
+  const { closeModal, edit, setEdit } = useModalContext()
   const [preview, setPreview] = useState(
     'https://res.cloudinary.com/faraamit/image/upload/v1630948112/design/pexels-olia-danilevich-5088184_fp8urk.jpg'
   )
@@ -79,15 +80,38 @@ export default function Form () {
   }
   const handleSubmit = () => {
     const allValues = { ...formData, image_url: preview }
-    console.log(allValues)
-    dispatch(createAbout(token, allValues))
+    if (edit) {
+      dispatch(updateAbout(token, edit, allValues))
+    } else {
+      dispatch(createAbout(token, allValues))
+    }
   }
   const {
     validateError,
     createSuccess,
     createError,
-    createLoading
+    createLoading,
+    editLoading,
+    editSuccess,
+    editError
   } = useSelector(state => state.About)
+
+  const values = useSelector(state => state.About.about)
+
+  const setEditForm = React.useCallback(id => {
+    if (values) {
+      const EditData = values.find(item => item.id == id)
+
+      setPreview(EditData['image_url'])
+
+      setFormData({
+        about_info: EditData['about_info'],
+        about_title: EditData['about_title'],
+        about_category: EditData['about_category']
+      })
+    }
+  })
+
   React.useEffect(() => {
     if (createSuccess) {
       closeModal()
@@ -95,6 +119,22 @@ export default function Form () {
       dispatch(fetchAbout(token))
     }
   }, [createSuccess])
+  React.useEffect(() => {
+    if (editSuccess) {
+      closeModal()
+      setEdit(null)
+      dispatch(clearAbout())
+      dispatch(fetchAbout(token))
+    }
+  }, [editSuccess])
+
+  React.useEffect(() => {
+    if (edit) {
+      console.log('am rerendering', edit)
+      setEditForm(edit)
+    }
+  }, [])
+
   return (
     <Modal>
       <Wrapper>
@@ -111,7 +151,11 @@ export default function Form () {
             required
             onChange={handleChangeData}
           >
-            <option value=''>Select Category</option>
+            {edit && (
+              <option value={formData['about_category']}>
+                {formData['about_category']}
+              </option>
+            )}
             <option value='About'>About</option>
             <option value='Mission'>Mission</option>
             <option value='Vision'>Vision</option>
@@ -143,10 +187,21 @@ export default function Form () {
           )}
 
           <ButtonStyle onClick={handleSubmit}>
-            {!createSuccess && !createLoading && !createError ? 'save' : null}
+            {!createSuccess &&
+            !editError &&
+            !editLoading &&
+            !editSuccess &&
+            !createLoading &&
+            !createError &&
+            !edit
+              ? 'save'
+              : null}
             {createLoading ? 'saving' : null}
-            {createError ? 'failed' : null}
+            {editLoading ? 'updating' : null}
+            {createError || editError ? 'failed' : null}
+            {edit ? 'update' : null}
             {createSuccess ? 'Successfully created' : null}
+            {editSuccess ? 'Edited Successfully ' : null}
           </ButtonStyle>
         </span>
       </Wrapper>
