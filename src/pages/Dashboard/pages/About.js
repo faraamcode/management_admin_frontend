@@ -6,9 +6,12 @@ import { useModalContext } from '../../../context/modal.context'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchAbout } from '../../../redux/Actions/AboutActionCreator'
 import { useAuthContext } from '../../../services/auth.service'
+import { ButtonStyle } from '../../../components/Button'
 
 export default function About () {
   const About = useSelector(state => state.About)
+  const profile = useSelector(state => state?.Profile.profile)
+  const userRole = profile?.['user_role']
   const dispatch = useDispatch()
   const { token } = useAuthContext()
   console.log(token)
@@ -29,6 +32,9 @@ export default function About () {
               setOpenModal={setOpenModal}
             />
           ))}
+        {userRole === 'admin' && (
+          <ButtonStyle onClick={() => setOpenModal(true)}>Add more</ButtonStyle>
+        )}
       </Wrapper>
       {openModal && <Form />}
     </>

@@ -15,9 +15,6 @@ export default function Info ({ setOpenModal, image, text, title }) {
           <p>{text}</p>
         </div>
         <div>
-          <ButtonStyle background='green' onClick={() => setOpenModal(true)}>
-            Add
-          </ButtonStyle>
           <ButtonStyle background='blue' onClick={() => setOpenModal(true)}>
             Edit
           </ButtonStyle>
