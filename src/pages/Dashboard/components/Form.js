@@ -133,7 +133,7 @@ export default function Form () {
       console.log('am rerendering', edit)
       setEditForm(edit)
     }
-  }, [])
+  }, [edit])
 
   return (
     <Modal>

@@ -24,10 +24,10 @@ export default function Info ({ setOpenModal, image, text, title, id }) {
     state => state.About
   )
   console.log(deleteLoading)
-  // React.useEffect(() => {
-  //   dispatch(fetchAbout(token))
-  //   dispatch(clearAbout())
-  // }, [deleteSuccess])
+  React.useEffect(() => {
+    dispatch(fetchAbout(token))
+  }, [deleteSuccess])
+
   const handleDelete = React.useCallback(id => {
     dispatch(deleteAbout(token, id))
   })
