@@ -21,6 +21,28 @@ export const Wrapper = styled.div`
     min-height: 70vh;
   }
 `
+export const TableStyle = styled.table`
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  background: white;
+  tbody tr {
+    border-bottom: 1px solid black;
+  }
+  tbody td,
+  thead th {
+    padding: 0.7rem 0.2rem;
+    text-align: center;
+  }
+  thead tr {
+    border-top-radius: 10px;
+    background: green;
+    color: white;
+  }
+  td img {
+    width: 80px;
+    height: 80px;
+  }
+`
 
 export const GridWrapper = styled(Wrapper)`
   display: grid;

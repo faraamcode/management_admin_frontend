@@ -5,13 +5,21 @@ import { DarkShadow, LightShadow } from '../../../common/Global.Style'
 import { ButtonStyle } from '../../../components/Button'
 import { useModalContext } from '../../../context/modal.context'
 import {
-  clearAbout,
-  deleteAbout,
-  fetchAbout
-} from '../../../redux/Actions/AboutActionCreator'
+  deleteAdmission,
+  fetchAdmission
+} from '../../../redux/Actions/AdmissionActionCreator'
 import { useAuthContext } from '../../../services/auth.service'
 import Modal from './Modal'
-export default function Info ({ setOpenModal, image, text, title, id }) {
+export default function SingleAdmission ({
+  setOpenModal,
+  image,
+  id,
+  surname,
+  otherNames,
+  proposedClass,
+  time,
+  index
+}) {
   const dispatch = useDispatch()
   const { token } = useAuthContext()
   const { setEdit } = useModalContext()
@@ -23,38 +31,40 @@ export default function Info ({ setOpenModal, image, text, title, id }) {
   })
 
   const { deleteSuccess, deleteLoading, deleteError } = useSelector(
-    state => state.About
+    state => state.Admission
   )
-  console.log(deleteLoading)
   React.useEffect(() => {
-    dispatch(fetchAbout(token))
+    dispatch(fetchAdmission(token))
   }, [deleteSuccess])
 
   const handleDelete = React.useCallback(id => {
-    dispatch(deleteAbout(token, id))
+    dispatch(deleteAdmission(token, id))
   })
 
   return (
     <>
-      <Wrapper>
-        <div>
-          <img src={image} />
-        </div>
-        <div>
-          <h4>{title}</h4>
-          <p>{text}</p>
-        </div>
-        <div>
+      <tr>
+        <td>{index}</td>
+        <td>
+          <img src={image} alt={image} />
+        </td>
+        <td>{surname}</td>
+        <td>{otherNames}</td>
+        <td>{proposedClass}</td>
+        <td>{time}</td>
+        <td>
           <ButtonStyle background='blue' onClick={() => handleEdit(id)}>
             Edit
           </ButtonStyle>
+        </td>
+        <td>
           {userRole === 'admin' && (
             <ButtonStyle onClick={() => handleDelete(id)}>
               {deleteLoading ? 'Deleting' : 'Delete'}
             </ButtonStyle>
           )}
-        </div>
-      </Wrapper>
+        </td>
+      </tr>
     </>
   )
 }

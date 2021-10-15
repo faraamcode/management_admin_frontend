@@ -26,7 +26,7 @@ const Login = () => {
     password: ''
   })
   const { setToken, token } = useAuthContext()
-  const { setOpenModal, openModal } = useModalContext()
+  const { setOpenModal, openModal, closeModal } = useModalContext()
   const loginState = useSelector(state => state?.Authentication)
 
   const dispatch = useDispatch()
@@ -42,6 +42,7 @@ const Login = () => {
   React.useEffect(() => {
     if (token) {
       history.replace('/dashboard')
+      closeModal()
     }
   }, [token])
 
