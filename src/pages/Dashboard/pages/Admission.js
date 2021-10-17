@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Form from '../components/Form'
 import { TableStyle, Wrapper } from '../components/main.style'
 import { useModalContext } from '../../../context/modal.context'
 import { useSelector, useDispatch } from 'react-redux'
@@ -7,6 +6,7 @@ import { fetchAdmission } from '../../../redux/Actions/AdmissionActionCreator'
 import { useAuthContext } from '../../../services/auth.service'
 import { ButtonStyle } from '../../../components/Button'
 import SingleAdmission from '../components/SingleAdmission'
+import AdmissionForm from '../components/AdmissionForm'
 
 export default function Admission () {
   const Admission = useSelector(state => state.Admission)
@@ -63,7 +63,7 @@ export default function Admission () {
           </ButtonStyle>
         )}
       </Wrapper>
-      {openModal && <Form />}
+      {openModal && <AdmissionForm />}
     </>
   )
 }

@@ -2,30 +2,27 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { ButtonStyle } from '../../../components/Button'
 import Modal from './Modal'
-import { Input, SelectStyle } from './Input'
+import { AdmissionField, AdmissionSelectField } from '../../../utils/data'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  clearAbout,
-  createAbout,
-  fetchAbout,
-  updateAbout
-} from '../../../redux/Actions/AboutActionCreator'
+import { Input, SelectStyle, FormSelect, FormInput } from './Input'
 import { useAuthContext } from '../../../services/auth.service'
 import { InputError } from '../../../common/Global.Style'
 import { useModalContext } from '../../../context/modal.context'
+import {
+  createAdmission,
+  updateAdmission,
+  fetchAdmission,
+  clearAdmission
+} from '../../../redux/Actions/AdmissionActionCreator'
 
-export default function Form () {
+export default function AdmissionForm () {
   const dispatch = useDispatch()
   const { token } = useAuthContext()
   const { closeModal, edit, setEdit } = useModalContext()
   const [preview, setPreview] = useState(
     'https://res.cloudinary.com/faraamit/image/upload/v1630948112/design/pexels-olia-danilevich-5088184_fp8urk.jpg'
   )
-  const [formData, setFormData] = useState({
-    about_info: '',
-    about_title: '',
-    about_category: ''
-  })
+  const [formData, setFormData] = useState({})
 
   const previewFile = file => {
     const reader = new FileReader()
@@ -46,10 +43,11 @@ export default function Form () {
   }
   const handleSubmit = () => {
     const allValues = { ...formData, image_url: preview }
+    console.log(allValues)
     if (edit) {
-      dispatch(updateAbout(token, edit, allValues))
+      dispatch(updateAdmission(token, edit, allValues))
     } else {
-      dispatch(createAbout(token, allValues))
+      dispatch(createAdmission(token, allValues))
     }
   }
   const {
@@ -60,9 +58,9 @@ export default function Form () {
     editLoading,
     editSuccess,
     editError
-  } = useSelector(state => state.About)
+  } = useSelector(state => state.Admission)
 
-  const values = useSelector(state => state.About.about)
+  const values = useSelector(state => state.Admission.admission)
 
   const setEditForm = React.useCallback(id => {
     if (values) {
@@ -70,33 +68,29 @@ export default function Form () {
 
       setPreview(EditData['image_url'])
 
-      setFormData({
-        about_info: EditData['about_info'],
-        about_title: EditData['about_title'],
-        about_category: EditData['about_category']
-      })
+      setFormData({ ...EditData })
     }
   })
 
   React.useEffect(() => {
     if (createSuccess) {
       closeModal()
-      dispatch(clearAbout())
-      dispatch(fetchAbout(token))
+      dispatch(clearAdmission())
+      dispatch(fetchAdmission(token))
     }
   }, [createSuccess])
+
   React.useEffect(() => {
     if (editSuccess) {
       closeModal()
       setEdit(null)
-      dispatch(clearAbout())
-      dispatch(fetchAbout(token))
+      dispatch(clearAdmission())
+      dispatch(fetchAdmission(token))
     }
   }, [editSuccess])
 
   React.useEffect(() => {
     if (edit) {
-      console.log('am rerendering', edit)
       setEditForm(edit)
     }
   }, [edit])
@@ -113,70 +107,71 @@ export default function Form () {
             handleChange={handleFileInputChange}
           />
           <SelectStyle
-            name='about_category'
+            name='student_gender'
             required
             onChange={handleChangeData}
           >
             {edit && (
-              <option value={formData['about_category']}>
-                {formData['about_category']}
+              <option value={formData['student_gender']}>
+                {formData['student_gender']}
               </option>
             )}
-            <option value='About'>About</option>
-            <option value='Mission'>Mission</option>
-            <option value='Vision'>Vision</option>
+            <option value=''>Select Gender</option>
+            <option value='Male'>Male</option>
+            <option value='Female'>Female</option>
           </SelectStyle>
-          {validateError?.['about_category'] && (
-            <InputError>{validateError?.['about_category']}</InputError>
+          {validateError?.['student_gender'] && (
+            <InputError>{validateError?.['student_gender']}</InputError>
           )}
         </div>
         <span>
-          <Input
-            type='text'
-            placeholder='enter your title'
-            name='about_title'
-            value={formData['about_title']}
-            handleChange={handleChangeData}
-          />
-          {validateError?.['about_title'] && (
-            <InputError>{validateError?.['about_title']}</InputError>
-          )}
-          <Input
-            type='textarea'
-            placeholder='enter your title'
-            name='about_info'
-            value={formData['about_info']}
-            handleChange={handleChangeData}
-          />
-          {validateError?.['about_info'] && (
-            <InputError>{validateError?.['about_info']}</InputError>
-          )}
-
-          <ButtonStyle onClick={handleSubmit}>
-            {!createSuccess &&
-            !editError &&
-            !editLoading &&
-            !editSuccess &&
-            !createLoading &&
-            !createError &&
-            !edit
-              ? 'save'
-              : null}
-            {createLoading ? 'saving' : null}
-            {editLoading ? 'updating' : null}
-            {createError || editError ? 'failed' : null}
-            {edit ? 'update' : null}
-            {createSuccess ? 'Successfully created' : null}
-            {editSuccess ? 'Edited Successfully ' : null}
-          </ButtonStyle>
+          {AdmissionField.map(item => (
+            <FormInput
+              key={item.name}
+              type={item.type}
+              placeholder={item.placeholder}
+              name={item.name}
+              formData={formData}
+              handleChangeData={handleChangeData}
+              validateError={validateError}
+            />
+          ))}
+          {AdmissionSelectField.map(item => (
+            <FormSelect
+              name={item.name}
+              formData={formData}
+              handleChangeData={handleChangeData}
+              validateError={validateError}
+              options={item.options}
+              edit={edit}
+            />
+          ))}
         </span>
+
+        <ButtonStyle onClick={handleSubmit}>
+          {!createSuccess &&
+          !editError &&
+          !editLoading &&
+          !editSuccess &&
+          !createLoading &&
+          !createError &&
+          !edit
+            ? 'save'
+            : null}
+          {createLoading ? 'saving' : null}
+          {editLoading ? 'updating' : null}
+          {createError || editError ? 'failed' : null}
+          {edit ? 'update' : null}
+          {createSuccess ? 'Successfully created' : null}
+          {editSuccess ? 'Edited Successfully ' : null}
+        </ButtonStyle>
       </Wrapper>
     </Modal>
   )
 }
 
 const Wrapper = styled.div`
-  min-width: 250px;
+  min-width: 300px;
   min-height: 500px;
   background: white;
   align-self: center;
@@ -184,8 +179,9 @@ const Wrapper = styled.div`
   border-radius: 7px;
   padding: 40px 20px;
   span {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    column-gap: 1rem;
+    grid-template-columns: 1fr 1fr;
   }
   h4 {
     text-align: center;
@@ -194,7 +190,9 @@ const Wrapper = styled.div`
   img {
     border: 4px solid black;
     margin-bottom: 10px;
-    width: 100%;
+    width: 80px;
+    height: 80px;
+
     max-height: 300px;
   }
   div {
